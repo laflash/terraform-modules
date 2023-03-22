@@ -1,27 +1,8 @@
-#terraform {
-#  required_version = ">= 1.4.0"
-#  required_providers {
-#
-#    kubernetes = {
-#      source = "hashicorp/kubernetes"
-#      version = "2.18.1"
-#    }
-#
-#  }
-#}
-#
-#provider "kubernetes" {
-#  config_path = var.kubernetes_config_path
-#  experiments {
-#    manifest_resource = true
-#  }
-#}
-
 resource "kubernetes_namespace" "metallb_namespace" {
   metadata {
-    name = var.namespace_name
+    name = var.namespace
     annotations = {
-      name = var.namespace_name
+      name = var.namespace
     }
     labels = {
       "pod-security.kubernetes.io/enforce":"privileged"
